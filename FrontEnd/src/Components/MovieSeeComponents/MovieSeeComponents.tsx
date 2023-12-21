@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import AllMovies from '../HomePageComponents/AllMovies/AllMovies';
+import UpcomingMovies from '../HomePageComponents/UpcomingMovies/UpcomingMovies';
 
 const MovieSeeComponents = () => {
     const backgroundImage = 'https://t4.ftcdn.net/jpg/02/34/98/73/360_F_234987365_1bwmHyUjVOKIibWEbnwaayE9FQiq2xpu.jpg';
 
     const movieBgImg = 'https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvZGVhZjJlNDktMDk0Ni00YmFlLTk5NmEtYmVmYzJkNjAyYmExLjEzYTM4MGNjM2ZkOTA2ZTNkOTE4ZTY3YjU5M2UxMzhhLmpwZWc.jpg';
 
+    const UserIcon = "https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+
+    const ReviewRef = useRef();
     const [reviewValue, setReviewValue] = useState(0);
     const [reviews, setReviews] = useState([]);
 
@@ -18,7 +23,7 @@ const MovieSeeComponents = () => {
                 id: Date.now(),
                 rating: reviewValue,
                 personName: 'John Doe',
-                reviewText: '',
+                reviewText: ReviewRef.current.value, // Use ReviewRef.current.value to get the textarea value
             };
 
             setReviews([...reviews, newReview]);
@@ -28,7 +33,17 @@ const MovieSeeComponents = () => {
 
     return (
         <>
-            <div className="s" style={{ backgroundImage: `url(${backgroundImage})`, width: '100%', minHeight: '500px',maxHeight: '1000px', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#7E635A',backgroundRepeat: 'no-repeat',}}>
+            <div className="s" style={{
+                backgroundImage: `url(${backgroundImage})`,
+                width: '100%',
+                minHeight: 'auto',
+                maxHeight: 'auto',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundColor: '#7E635A',
+                backgroundRepeat: 'no-repeat',
+                paddingBottom: "15px"
+            }}>
                 <div className="container" style={{ paddingTop: '100px' }}>
                     <div className="row text-white">
 
@@ -71,7 +86,7 @@ const MovieSeeComponents = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea ref={ReviewRef} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 <button className="btn btn-primary my-3" onClick={handleAddReview}>
                                     Submit Now
                                 </button>
@@ -83,27 +98,55 @@ const MovieSeeComponents = () => {
                             <p>Creators: <span>Julie Pleckevin Williamson </span></p>
                             <p>Stars: <span>Nine DoverevPa Wesleylan Somerhaldr </span></p>
                             <h2>All Reviews</h2>
-                            <ul>
+                            <div>
                                 {reviews.map((review) => (
-                                    <li key={review.id}>
-                                        <span style={{color: '#ffc83d'}}>{'★'.repeat(review.rating)}</span>
-                                        <span> {review.personName}</span>
-                                        <p>{review.reviewText}</p>
-                                    </li>
+                                    <div key={review.id} className="text-center mb-2" style={{ backgroundColor: "rgb(0 119 204 / 30%)", borderRadius: "10px" }}>
+                                        <div className="mb-2" style={{ backgroundColor: "rgb(0 119 204)" }}>
+                                            <span style={{ color: '#ffc83d', fontSize: '25px' }}>{'★'.repeat(review.rating)}</span>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <img src={UserIcon} style={{ width: "100px", height: "100px", borderRadius: "50%" }} alt="" />
+                                                <br />
+                                                <span> {review.personName}</span>
+                                            </div>
+                                            <div className="col-md-8">
+                                                <p>{review.reviewText}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 ))}
-                            </ul>
+
+                                {/* <div className="text-center" style={{ backgroundColor: "rgb(0 119 204 / 30%)" }}>
+                                    <div className="mb-2" style={{ backgroundColor: "rgb(0 119 204)" }}>
+                                        <span style={{ color: '#ffc83d' }}>{'★'.repeat(review.rating)}</span>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className="col-md-4">
+                                            <img src={UserIcon} style={{ width: "100px", height: "100px", borderRadius: "50%" }} alt="" />
+                                            <span> {review.personName}</span>
+                                        </div>
+                                        <div className="col-md-8">
+                                            <p>{review.reviewText}</p>
+                                        </div>
+                                    </div>
+                                </div> */}
+
+
+
+                            </div>
                         </div>
 
                     </div>
-
-
                 </div>
-
-
-
-
-
             </div>
+
+            <AllMovies />
+
+            <UpcomingMovies />
+
         </>
     );
 };
