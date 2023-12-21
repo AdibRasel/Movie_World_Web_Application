@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.HeaderSearchInput:focus {
+    outline: none;
+    border-color: none;
+}
+
+.active {
+    color: yellow; /* Set the active color to red */
+    /* Add any other styles you want for the active state */
+}
+
+/* Default style for non-active links */
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
