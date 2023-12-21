@@ -5,7 +5,7 @@ const HeroSection = () => {
 
     return (
         <>
-            <div className="hero" style={{ backgroundImage: `url(${HeroBgImg})`, width: "100%", height: "500px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
+            <div className="hero" style={{ backgroundImage: `url(${HeroBgImg})`, width: "100%", minHeight: "500px", maxHeight:"1000px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
 
 
                 <div className="container" style={{ width: "100%", height: "100%", backgroundColor: "rgb(67 71 69 / 85%)" }}>
