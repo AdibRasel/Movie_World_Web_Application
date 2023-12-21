@@ -28,19 +28,7 @@ const MovieSeeComponents = () => {
 
     return (
         <>
-            <div
-                className="s"
-                style={{
-                    backgroundImage: `url(${backgroundImage})`,
-                    width: '100%',
-                    minHeight: '500px',
-                    maxHeight: '1000px',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundColor: '#7E635A',
-                    backgroundRepeat: 'no-repeat',
-                }}
-            >
+            <div className="s" style={{ backgroundImage: `url(${backgroundImage})`, width: '100%', minHeight: '500px',maxHeight: '1000px', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#7E635A',backgroundRepeat: 'no-repeat',}}>
                 <div className="container" style={{ paddingTop: '100px' }}>
                     <div className="row text-white">
 
@@ -107,7 +95,14 @@ const MovieSeeComponents = () => {
                         </div>
 
                     </div>
+
+
                 </div>
+
+
+
+
+
             </div>
         </>
     );
