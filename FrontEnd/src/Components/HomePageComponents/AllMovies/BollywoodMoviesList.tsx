@@ -52,35 +52,35 @@ const BollywoodMoviesList = () => {
             >
 
 
-                <SwiperSlide>
+                <SwiperSlide className='text-center'>
                     <div className="p-2" style={{ backgroundImage: `url(${WatchBgImg1})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
                         <BsBadge4KFill className='' />
-                        <h2>The Shawshank Redemption (1994)</h2>
-                        <button className='btn btn-outline-primary' style={{marginTop:"100px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
+                        <h3 className='text-primary'>The Shawshank Redemption (1994)</h3>
+                        <button className='btn btn-primary' style={{marginTop:"150px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide>
+                <SwiperSlide className='text-center'>
                     <div className="p-2" style={{ backgroundImage: `url(${WatchBgImg2})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
                         <BsBadge4KFill className='' />
-                        <h2>The Godfather (1972)</h2>
-                        <button className='btn btn-outline-primary' style={{marginTop:"100px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
+                        <h3 className='text-primary'>The Godfather (1972)</h3>
+                        <button className='btn btn-primary' style={{marginTop:"150px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide>
+                <SwiperSlide  className='text-center'>
                     <div className="p-2" style={{ backgroundImage: `url(${WatchBgImg3})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
                         <BsBadge4KFill className='' />
-                        <h2>The Dark Knight (2008)</h2>
-                        <button className='btn btn-outline-primary' style={{marginTop:"100px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
+                        <h3 className='text-primary'>The Dark Knight (2008)</h3>
+                        <button className='btn btn-primary' style={{marginTop:"150px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide>
+                <SwiperSlide  className='text-center'>
                     <div className="p-2" style={{ backgroundImage: `url(${WatchBgImg4})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
                         <BsBadge4KFill className='' />
-                        <h2>Pulp Fiction (1994)</h2>
-                        <button className='btn btn-outline-primary' style={{marginTop:"100px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
+                        <h3 className='text-primary'>Pulp Fiction (1994)</h3>
+                        <button className='btn btn-primary' style={{marginTop:"150px", textAlign:"center"}}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
                     </div>
                 </SwiperSlide>
 
