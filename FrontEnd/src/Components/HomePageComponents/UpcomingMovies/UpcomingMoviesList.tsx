@@ -21,15 +21,6 @@ const UpcomingMoviesList = () => {
     const MovieImage4 = "https://m.media-amazon.com/images/M/MV5BMDQ0NjgyN2YtNWViNS00YjA3LTkxNDktYzFkZTExZGMxZDkxXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
 
 
-    // import MovieImage1 from "../../assets/img/sample/avatar/avatar1.jpg"
-    // import MovieImage2 from "../../assets/img/sample/avatar/avatar2.jpg"
-    // import MovieImage3 from "../../assets/img/sample/avatar/avatar3.jpg"
-    // import MovieImage4 from "../../assets/img/sample/avatar/avatar4.jpg"
-    // import MovieImage1 from "../../assets/img/sample/avatar/avatar5.jpg"
-    // import MovieImage2 from "../../assets/img/sample/avatar/avatar6.jpg"
-    // import MovieImage3 from "../../assets/img/sample/avatar/avatar7.jpg"
-    // import MovieImage4 from "../../assets/img/sample/avatar/avatar8.jpg"
-    // import MovieImage1 from "../../assets/img/sample/avatar/avatar9.jpg"
 
     return (
         <div className='HomeSendMoney'>
