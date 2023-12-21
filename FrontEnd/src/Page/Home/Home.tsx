@@ -1,3 +1,4 @@
+import Footer from "../../Common/Footer/Footer"
 import Header from "../../Common/Header/Header"
 import AllMovies from "../../Components/HomePageComponents/AllMovies/AllMovies"
 import EnjoyItMovies from "../../Components/HomePageComponents/EnjoyItMovies/EnjoyItMovies"
@@ -22,6 +23,8 @@ const Home = () => {
         <MoviesYouRated />
 
         <YourWatch />
+
+        <Footer />
 
         
 

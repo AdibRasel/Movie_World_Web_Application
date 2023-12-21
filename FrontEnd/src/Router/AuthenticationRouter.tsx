@@ -4,6 +4,7 @@ import WrongRoute from '../Helper/WrongRoute/WrongRoute';
 import Movies from '../Page/Movies/Movies';
 import GetPro from '../Page/GetPro/GetPro';
 import WatchList from '../Page/WatchList/WatchList';
+import MovieSee from '../Page/MovieSee/MovieSee';
 
 const AuthenticationRouter = () => {
     return (
@@ -15,6 +16,7 @@ const AuthenticationRouter = () => {
                 <Route path="/GetPro" element={<GetPro />} />
                 <Route path="/Movies" element={<Movies />} />
                 <Route path="/WatchList" element={<WatchList />} />
+                <Route path="/MovieSee" element={<MovieSee />} />
             </Routes>
         </BrowserRouter>
     )
