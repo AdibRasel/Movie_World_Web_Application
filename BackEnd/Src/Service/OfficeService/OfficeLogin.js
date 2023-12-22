@@ -8,12 +8,17 @@ const OfficeLogin = async (Request, DataModel) => {
         let data = await DataModel.aggregate(
             [
                 { $match: Request.body },
+                // { $match: Request.body.OfficeEmail },
+                {$match: {OfficeEmail: Request.body.OfficeEmail}},
+                {$match: {Password: Request.body.Password}},
                 {
                     $project:
-                        { _id: 0, OfficeEmail: 1, OfficeName: 1, FirstName: 1, LastName: 1, Address: 1, Mobile: 1, Password: 1, Photo: 1, CreateDate: 1 }
+                        { _id: 1, OfficeEmail: 1, OfficeName: 1, FirstName: 1, LastName: 1, Address: 1, Mobile: 1, Photo: 1, CreateDate: 1 }
                 }
             ]
         )
+
+        // return Request.body
 
         if (data.length > 0) {
 
@@ -25,7 +30,7 @@ const OfficeLogin = async (Request, DataModel) => {
             return { status: "Success", data: data[0], Token: Token}
 
         } else {
-            return { status: "Unauthorized" }
+            return { status: "Unauthorized", errorData: data }
         }
 
     } catch (error) {

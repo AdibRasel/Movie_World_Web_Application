@@ -34,3 +34,25 @@ export async function MenuDetails() {
         return null;
     }
 }
+
+
+// User Login Start
+export async function Login(PostBody, LoginUrl) {
+    try {
+        const URL = BaseURL + "/" + LoginUrl;
+
+        // const AxiosHeader = { headers: { 'content-type': 'multipart/form-data' } };
+        const AxiosHeader = { headers: { 'content-type': 'application/json' } };
+
+        const result = await axios.post(URL, PostBody, AxiosHeader);
+
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// User Login End

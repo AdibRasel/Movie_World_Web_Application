@@ -8,9 +8,12 @@ const UserLogin = async (Request, DataModel) => {
         let data = await DataModel.aggregate(
             [
                 { $match: Request.body },
+                // { $match: Request.body.OfficeEmail },
+                {$match: {UserEmail: Request.body.UserEmail}},
+                {$match: {Password: Request.body.Password}},
                 {
                     $project:
-                        { _id: 0, UserEmail: 1, FullName: 1, Mobile: 1, Password: 1, Photo: 1, CreateDate: 1 }
+                        { _id: 1, UserEmail: 1, FullName: 1, Mobile: 1, Photo: 1, CreateDate: 1 }
                 }
             ]
         )

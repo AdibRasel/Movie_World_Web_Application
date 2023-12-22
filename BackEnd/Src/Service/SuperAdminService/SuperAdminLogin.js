@@ -8,9 +8,12 @@ const SuperAdminLogin = async (Request, DataModel) => {
         let data = await DataModel.aggregate(
             [
                 { $match: Request.body },
+                // { $match: Request.body.OfficeEmail },
+                { $match: { SuperAdminEmail: Request.body.SuperAdminEmail } },
+                { $match: { Password: Request.body.Password } },
                 {
                     $project:
-                        { _id: 0, SuperAdminEmail: 1, SuperAdminName: 1, Mobile: 1, Photo: 1, Password: 1, CreateDate: 1 }
+                        { _id: 1, SuperAdminEmail: 1, SuperAdminName: 1, Mobile: 1, Photo: 1, CreateDate: 1 }
                 }
             ]
         )
@@ -22,7 +25,7 @@ const SuperAdminLogin = async (Request, DataModel) => {
 
             let Token = await CreateToken(Email, Password)
 
-            return { status: "Success", data: data[0], Token: Token}
+            return { status: "Success", data: data[0], Token: Token }
 
         } else {
             return { status: "Unauthorized" }

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from '../Page/Login/Login';
 import Registration from '../Page/Registration/Registration';
 import WrongRoute from '../Helper/WrongRoute/WrongRoute';
+import Home from '../Page/Home/Home';
 
 
 const UnAuthenticatedRouter = () => {
@@ -10,9 +11,10 @@ const UnAuthenticatedRouter = () => {
     <BrowserRouter>
     <Routes>
           <Route path="*" element={<WrongRoute />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/Registration" element={<Registration />} />
+          <Route path="/" element={<Home />} />
     </Routes>
   </BrowserRouter>
   )
