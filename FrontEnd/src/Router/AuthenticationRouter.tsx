@@ -5,6 +5,7 @@ import Movies from '../Page/Movies/Movies';
 import GetPro from '../Page/GetPro/GetPro';
 import WatchList from '../Page/WatchList/WatchList';
 import MovieSee from '../Page/MovieSee/MovieSee';
+import Dashboard from '../Page/Dashboard/Dashboard';
 
 const AuthenticationRouter = () => {
     return (
@@ -17,6 +18,7 @@ const AuthenticationRouter = () => {
                 <Route path="/Movies" element={<Movies />} />
                 <Route path="/WatchList" element={<WatchList />} />
                 <Route path="/MovieSee" element={<MovieSee />} />
+                <Route path="/Dashboard" element={<Dashboard />} />
             </Routes>
         </BrowserRouter>
     )
