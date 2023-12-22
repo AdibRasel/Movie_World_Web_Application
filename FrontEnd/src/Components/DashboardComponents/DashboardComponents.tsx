@@ -25,7 +25,7 @@ const DashboardComponents = () => {
                             <Card.Body>
                                 <Card.Title>
                                     <span style={{ color: "rgb(13 110 253)", fontWeight: "bold" }}>All Movies </span>
-                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}>2,159</span>
+                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}> 2,159</span>
                                 </Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the
@@ -41,7 +41,7 @@ const DashboardComponents = () => {
                             <Card.Body>
                                 <Card.Title>
                                     <span style={{ color: "rgb(13 110 253)", fontWeight: "bold" }}>Hollywood Movies</span>
-                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}>1,079 </span>
+                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}> 1,079 </span>
                                 </Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the
@@ -57,7 +57,7 @@ const DashboardComponents = () => {
                             <Card.Body>
                                 <Card.Title>
                                     <span style={{ color: "rgb(13 110 253)", fontWeight: "bold" }}>Bollywood Movies</span>
-                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}>1,80</span>
+                                    <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}> 1,80</span>
                                 </Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the
@@ -72,14 +72,14 @@ const DashboardComponents = () => {
 
 
                 {role === "SuperAdmin" && (
-                    <div className="row pt-3" style={{textAlign: "-webkit-center"}}>
+                    <div className="row py-3" style={{textAlign: "-webkit-center"}}>
                         <div className="col-md-6 ">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" style={{ width: "100%", height: "150px" }} src={OfficeImg} />
+                                <Card.Img variant="top" style={{ width: "100%", height: "150px" }} src={UserImg} />
                                 <Card.Body>
                                     <Card.Title>
                                         <span style={{ color: "rgb(13 110 253)", fontWeight: "bold" }}>All User </span>
-                                        <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}>59,589</span>
+                                        <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}> 59,589</span>
                                     </Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the
@@ -91,17 +91,17 @@ const DashboardComponents = () => {
                         </div>
                         <div className="col-md-6">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" style={{ width: "100%", height: "150px" }} src={UserImg} />
+                                <Card.Img variant="top" style={{ width: "100%", height: "150px" }} src={OfficeImg} />
                                 <Card.Body>
                                     <Card.Title>
                                         <span style={{ color: "rgb(13 110 253)", fontWeight: "bold" }}>Office User</span>
-                                        <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}>158</span>
+                                        <span style={{ color: "rgb(255 173 0)", fontWeight: "bold" }}> 158</span>
                                     </Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the
                                         bulk of the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">See All <i class="fa-regular fa-eye"></i></Button>
+                                    <Button variant="primary">See All <i className="fa-regular fa-eye"></i></Button>
                                 </Card.Body>
                             </Card>
                         </div>

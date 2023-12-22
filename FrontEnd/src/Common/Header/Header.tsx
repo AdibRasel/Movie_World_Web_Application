@@ -22,12 +22,12 @@ const Header = () => {
 
   return (
     <div className="navbar-fixed" style={{ backgroundColor: "rgb(62 62 62 / 29%)", position: "fixed", top: 0, width: "100%", zIndex: 1000 }}>
-      
+
 
       <div className="container">
-        
+
         <div className="row" style={{ height: "60px", alignItems: "center" }}>
-         
+
           <div className="col-md-2">
             <NavLink to="/">
               <img style={{ width: "100%", height: "60px" }} className="img-fluid" src={Logo} alt="Site Logo" />
@@ -65,10 +65,12 @@ const Header = () => {
                   <option value="Bangla">BN</option>
                 </select>
               </button>
-              <span className="p-2"><i className="fa fa-user text-white"></i></span>
+              <NavLink to="/Dashboard">
+                <span className="p-2"><i className="fa fa-user text-white"></i></span>
+              </NavLink>
             </nav>
           </div>
-          
+
         </div>
 
       </div>

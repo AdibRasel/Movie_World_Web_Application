@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { NavLink } from 'react-router-dom';
 
 const AllMoviesList = () => {
 
@@ -68,7 +69,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage2} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Adam</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -78,7 +81,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage3} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Doctor</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -88,7 +93,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage4} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Jurassic</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -98,7 +105,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage1} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Alma</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -110,7 +119,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage2} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Adam</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -120,7 +131,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage3} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Doctor</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
@@ -130,7 +143,9 @@ const AllMoviesList = () => {
                     <img style={{ width: "120px", height: "150px", borderRadius: "10px" }} src={MovieImage4} alt="" /> <br />
                     <div className="mb-3">
                         <h3 style={{ color: "#ffad00" }}>Jurassic</h3>
-                        <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        <NavLink to="/MovieSee">
+                            <button className='btn btn-primary'> <i className="fa-regular fa-circle-play fa-beat-fade"></i> Watch Now</button>
+                        </NavLink>
                     </div>
                 </SwiperSlide>
 
