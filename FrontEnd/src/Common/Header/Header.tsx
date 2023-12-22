@@ -65,7 +65,7 @@ const Header = () => {
                   <option value="Bangla">BN</option>
                 </select>
               </button>
-              <NavLink to="/Dashboard">
+              <NavLink to="/Profile">
                 <span className="p-2"><i className="fa fa-user text-white"></i></span>
               </NavLink>
             </nav>

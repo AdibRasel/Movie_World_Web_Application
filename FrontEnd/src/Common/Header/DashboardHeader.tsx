@@ -43,6 +43,9 @@ const DashboardHeader = () => {
                                 <NavLink to="/">
                                     <span className="p-2">Public Home</span>
                                 </NavLink>
+                                <NavLink to="/">
+                                    <span className="p-2">Pending Movie</span>
+                                </NavLink>
                                 <NavLink to="/AllMovieSee">
                                     <span className="p-2">All Movies</span>
                                 </NavLink>
@@ -55,7 +58,7 @@ const DashboardHeader = () => {
                                 <NavLink to="/AddMovie">
                                     <span className="p-2">Add Movie</span>
                                 </NavLink>
-                                <NavLink to="/WatchList">
+                                <NavLink to="/Profile">
                                     <span className="p-2">Profile</span>
                                 </NavLink>
                             </nav>
@@ -79,7 +82,10 @@ const DashboardHeader = () => {
                                     <option value="Bangla">BN</option>
                                 </select>
                             </button>
-                            <span className="p-2"><i className="fa fa-user text-white"></i></span>
+                            <NavLink to="/Profile">
+                                <span className="p-2"><i className="fa fa-user text-white"></i></span>
+                            </NavLink>
+
                         </nav>
                     </div>
 

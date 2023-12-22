@@ -10,6 +10,7 @@ import AllMovieSeePage from '../Page/Dashboard/MovieControll/AllMovieSeePage';
 import AllHollywoodMovie from '../Page/Dashboard/MovieControll/AllHollywoodMovie';
 import AllBollywoodMovie from '../Page/Dashboard/MovieControll/AllBollywoodMovie';
 import AddMovie from '../Page/AddMovie/AddMovie';
+import Profile from '../Page/Profile/Profile';
 
 const AuthenticationRouter = () => {
     return (
@@ -27,6 +28,7 @@ const AuthenticationRouter = () => {
                 <Route path="/AllHollywoodMovie" element={<AllHollywoodMovie />} />
                 <Route path="/AllBollywoodMovie" element={<AllBollywoodMovie />} />
                 <Route path="/AddMovie" element={<AddMovie />} />
+                <Route path="/Profile" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     )
