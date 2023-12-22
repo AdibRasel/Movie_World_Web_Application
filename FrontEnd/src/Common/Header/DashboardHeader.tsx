@@ -52,6 +52,9 @@ const DashboardHeader = () => {
                                 <NavLink to="/AllBollywoodMovie">
                                     <span className="p-2">Bollywood Movies</span>
                                 </NavLink>
+                                <NavLink to="/AddMovie">
+                                    <span className="p-2">Add Movie</span>
+                                </NavLink>
                                 <NavLink to="/WatchList">
                                     <span className="p-2">Profile</span>
                                 </NavLink>

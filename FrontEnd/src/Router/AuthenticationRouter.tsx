@@ -9,6 +9,7 @@ import Dashboard from '../Page/Dashboard/Dashboard';
 import AllMovieSeePage from '../Page/Dashboard/MovieControll/AllMovieSeePage';
 import AllHollywoodMovie from '../Page/Dashboard/MovieControll/AllHollywoodMovie';
 import AllBollywoodMovie from '../Page/Dashboard/MovieControll/AllBollywoodMovie';
+import AddMovie from '../Page/AddMovie/AddMovie';
 
 const AuthenticationRouter = () => {
     return (
@@ -25,6 +26,7 @@ const AuthenticationRouter = () => {
                 <Route path="/AllMovieSee" element={<AllMovieSeePage />} />
                 <Route path="/AllHollywoodMovie" element={<AllHollywoodMovie />} />
                 <Route path="/AllBollywoodMovie" element={<AllBollywoodMovie />} />
+                <Route path="/AddMovie" element={<AddMovie />} />
             </Routes>
         </BrowserRouter>
     )

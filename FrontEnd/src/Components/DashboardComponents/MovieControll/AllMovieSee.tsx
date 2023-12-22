@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { NavLink } from 'react-router-dom';
 
 const AllMovieSee = () => {
 
@@ -28,8 +29,10 @@ const AllMovieSee = () => {
 
         <div className="row pt-2">
           <div className="col-md-3">
-            <div className="text-center" style={{width:"100%", height:"100%", border:"dotted", backgroundColor:"rgb(197 197 197)",}}>
-              <button className='btn btn-primary mt-3'><i className="fa-solid fa-plus"></i> Add More</button>
+            <div className="text-center" style={{ width: "100%", height: "100%", border: "dotted", backgroundColor: "rgb(197 197 197)", }}>
+              <NavLink to="/AddMovie">
+                <button className='btn btn-primary mt-3'><i className="fa-solid fa-plus"></i> Add More</button>
+              </NavLink>
             </div>
           </div>
           <div className="col-md-3">
