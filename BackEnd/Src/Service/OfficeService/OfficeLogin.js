@@ -13,7 +13,7 @@ const OfficeLogin = async (Request, DataModel) => {
                 {$match: {Password: Request.body.Password}},
                 {
                     $project:
-                        { _id: 1, OfficeEmail: 1, OfficeName: 1, FirstName: 1, LastName: 1, Address: 1, Mobile: 1, Photo: 1, CreateDate: 1 }
+                        { _id: 1, OfficeEmail: 1, OfficeName: 1, FirstName: 1, LastName: 1, Address: 1, Mobile: 1, Photo: 1, CreateDate: 1, Role: 1 }
                 }
             ]
         )

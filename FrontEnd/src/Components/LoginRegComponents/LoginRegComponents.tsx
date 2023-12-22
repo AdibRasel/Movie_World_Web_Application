@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Tab, Tabs, Form, Button } from 'react-bootstrap';
 
-import { Login } from "../../APIService/APIService.js"
+import { Login, Register } from "../../APIService/APIService.js"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ const LoginRegComponents = () => {
 
     let LoginEmailRef: any, LoginPasswordRef: any, RegNameRef: any, RegEmailRef: any, RegPasswordRef: any, LoginSelectorRef: any, RegSelectorRef: any = useRef();
 
+
+    // Login Button start 
     const LoginBtn = () => {
         const LoginEmail = LoginEmailRef.value;
         const LoginPassword = LoginPasswordRef.value;
@@ -28,10 +30,8 @@ const LoginRegComponents = () => {
             const Url = "UserLogin";
             Login(PostBody, Url).then((Res) => {
                 if (Res.data.status == "Success") {
-                    console.log("Success")
-                    console.log(Res.data.data)
-                    // SetUserError(" ")
                     localStorage.setItem('UserID', Res.data.data._id)
+                    localStorage.setItem('Role', Res.data.data.Role)
                     localStorage.setItem('UserEmail', Res.data.data.UserEmail)
                     localStorage.setItem('FullName', Res.data.data.FullName)
                     localStorage.setItem('Mobile', Res.data.data.Mobile)
@@ -42,8 +42,8 @@ const LoginRegComponents = () => {
                     window.location.reload();
                 } else {
                     localStorage.clear();
+                    alert("Login Faild, Please Try Again Later")
                 }
-                console.log(Res)
             });
 
 
@@ -59,13 +59,14 @@ const LoginRegComponents = () => {
             const Url = "OfficeLogin";
             Login(PostBody, Url).then((Res) => {
                 if (Res.data.status == "Success") {
-                    console.log("Success")
-                    console.log(Res.data.data)
-                    // SetUserError(" ")
                     localStorage.setItem('UserID', Res.data.data._id)
-                    localStorage.setItem('UserEmail', Res.data.data.UserEmail)
-                    localStorage.setItem('FullName', Res.data.data.FullName)
-                    localStorage.setItem('Mobile', Res.data.data.Mobile)
+                    localStorage.setItem('Role', Res.data.data.Role)
+                    localStorage.setItem('OfficeEmail', Res.data.data.OfficeEmail)
+                    localStorage.setItem('OfficeName', Res.data.data.OfficeName)
+                    localStorage.setItem('FirstName', Res.data.data.FirstName)
+                    localStorage.setItem('LastName', Res.data.data.LastName)
+                    localStorage.setItem('Address', Res.data.data.Address)
+                    localStorage.setItem('Mobile', Res.data.Mobile)
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
@@ -73,8 +74,8 @@ const LoginRegComponents = () => {
                     window.location.reload();
                 } else {
                     localStorage.clear();
+                    alert("Login Faild, Please Try Again Later")
                 }
-                console.log(Res)
             }).catch(error => {
                 console.error('Error:', error);
             });
@@ -91,12 +92,10 @@ const LoginRegComponents = () => {
             const Url = "SuperAdminLogin";
             Login(PostBody, Url).then((Res) => {
                 if (Res.data.status == "Success") {
-                    console.log("Success")
-                    console.log(Res.data.data)
-                    // SetUserError(" ")
                     localStorage.setItem('UserID', Res.data.data._id)
-                    localStorage.setItem('UserEmail', Res.data.data.UserEmail)
-                    localStorage.setItem('FullName', Res.data.data.FullName)
+                    localStorage.setItem('Role', Res.data.data.Role)
+                    localStorage.setItem('SuperAdminEmail', Res.data.data.SuperAdminEmail)
+                    localStorage.setItem('SuperAdminName', Res.data.data.SuperAdminName)
                     localStorage.setItem('Mobile', Res.data.data.Mobile)
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
@@ -105,8 +104,8 @@ const LoginRegComponents = () => {
                     window.location.reload();
                 } else {
                     localStorage.clear();
+                    alert("Login Faild, Please Try Again Later")
                 }
-                console.log(Res)
             });
 
 
@@ -114,6 +113,98 @@ const LoginRegComponents = () => {
         }
 
     }
+    // Login Button end
+
+
+    // Register Button Start 
+    const RegBtn = () => {
+        const RegSelector = RegSelectorRef.value;
+        const RegName = RegNameRef.value;
+        const RegEmail = RegEmailRef.value;
+        const RegPassword = RegPasswordRef.value;
+
+        if (RegSelector === "UserRegister") {
+
+            let PostBody = {
+                UserEmail: RegEmail,
+                Role: "User",
+                FullName: RegName,
+                Mobile: "",
+                Password: RegPassword,
+                Photo: ""
+            };
+
+            const Url = "UserRegister";
+            Register(PostBody, Url).then((Res) => {
+                if (Res.data.status == "success") {
+                    localStorage.clear();
+                    navigate('/login');
+                    window.location.reload();
+                    alert("Success")
+                } else {
+                    alert("error")
+                }
+                console.log(Res)
+            });
+
+
+
+        } else if (RegSelector === "OfficeRegister") {
+
+            let PostBody = {
+                OfficeEmail: RegEmail,
+                Role: "Office",
+                OfficeName: RegName,
+                FirstName: " + " + RegName,
+                LastName: "",
+                Address: "",
+                Mobile: "",
+                Password: RegPassword,
+                Photo: ""
+            };
+
+            const Url = "OfficeRegister";
+            Register(PostBody, Url).then((Res) => {
+                if (Res.data.status == "success") {
+                    localStorage.clear();
+                    navigate('/login');
+                    window.location.reload();
+                    alert("Success")
+                } else {
+                    alert("error")
+                }
+                console.log(Res)
+            });
+
+        } else if (RegSelector === "SuperAdminRegister") {
+
+            let PostBody = {
+                SuperAdminEmail: RegEmail,
+                Role: "SuperAdmin",
+                SuperAdminName: RegName,
+                Mobile: "",
+                Photo: "",
+                Password: RegPassword
+            };
+
+            const Url = "SuperAdminRegister";
+            Register(PostBody, Url).then((Res) => {
+                if (Res.data.status == "success") {
+                    localStorage.clear();
+                    navigate('/login');
+                    window.location.reload();
+                    alert("Success")
+                } else {
+                    alert("error")
+                }
+                console.log(Res)
+            });
+
+        }
+
+
+    }
+    // Register Button End
 
 
 
@@ -166,9 +257,9 @@ const LoginRegComponents = () => {
                         <Form.Group className='mb-3'>
                             <Form.Label className='bold text-black'>You Are</Form.Label>
                             <Form.Select ref={(input: any) => RegSelectorRef = input}>
-                                <option value='User'>User</option>
-                                <option value='Office'>Office</option>
-                                <option value='SuperAdmin'>Super Admin</option>
+                                <option value='UserRegister'>User Register</option>
+                                <option value='OfficeRegister'>Office Register</option>
+                                <option value='SuperAdminRegister'>Super Admin Register</option>
                             </Form.Select>
                         </Form.Group>
 
@@ -198,7 +289,7 @@ const LoginRegComponents = () => {
                                 placeholder='Password'
                             />
                         </Form.Group>
-                        <Button variant='primary' type='submit'>
+                        <Button onClick={RegBtn} variant='primary' type='submit'>
                             Submit
                         </Button>
                         {/* </Form> */}

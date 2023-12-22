@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema({
     SuperAdminEmail:{type:String, unique:true},
+    Role:{type:String},
     SuperAdminName:{type:String},
     Mobile:{type:String},
     Photo:{type:String},

@@ -56,3 +56,27 @@ export async function Login(PostBody, LoginUrl) {
     }
 }
 // User Login End
+
+
+
+
+// User Register Start
+export async function Register(PostBody, RegisterUrl) {
+    try {
+        const URL = BaseURL + "/" + RegisterUrl;
+
+        // const AxiosHeader = { headers: { 'content-type': 'multipart/form-data' } };
+        const AxiosHeader = { headers: { 'content-type': 'application/json' } };
+
+        const result = await axios.post(URL, PostBody, AxiosHeader);
+
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// User Register End

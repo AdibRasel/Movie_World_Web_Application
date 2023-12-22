@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema({
     OfficeEmail:{type:String, unique:true},
+    Role:{type:String},
     OfficeName:{type:String},
     FirstName:{type:String},
     LastName:{type:String},
