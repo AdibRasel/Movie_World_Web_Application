@@ -38,7 +38,7 @@ const LoginRegComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    navigate('/home');
+                    navigate('/Profile');
                     window.location.reload();
                 } else {
                     localStorage.clear();
@@ -70,7 +70,7 @@ const LoginRegComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    navigate('/home');
+                    navigate('/Dashboard');
                     window.location.reload();
                 } else {
                     localStorage.clear();
@@ -100,7 +100,7 @@ const LoginRegComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    navigate('/home');
+                    navigate('/Dashboard');
                     window.location.reload();
                 } else {
                     localStorage.clear();

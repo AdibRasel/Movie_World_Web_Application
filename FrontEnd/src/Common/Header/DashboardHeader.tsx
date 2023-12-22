@@ -7,8 +7,14 @@ const DashboardHeader = () => {
     const [Logo, SetLogo] = useState("");
     const [MenuList, SetMenuList] = useState([]);
 
+    const [Role, SetRole] = useState("");
+
 
     useEffect(() => {
+
+        var RoleValue = localStorage.getItem('Role');
+        SetRole(RoleValue)
+
 
         var GetLogo = localStorage.getItem('Logo');
         SetLogo(GetLogo);
@@ -36,7 +42,7 @@ const DashboardHeader = () => {
 
                     <div className="col-md-6">
                         <div className="p-1" style={{ display: "flex", alignItems: "center", backgroundColor: "#495057ab", borderRadius: "5px" }}>
-                            <nav>
+                            {/* <nav>
                                 <NavLink to="/Dashboard">
                                     <span className="p-2">Dashboard</span>
                                 </NavLink>
@@ -61,7 +67,84 @@ const DashboardHeader = () => {
                                 <NavLink to="/Profile">
                                     <span className="p-2">Profile</span>
                                 </NavLink>
-                            </nav>
+                            </nav> */}
+
+
+
+                            <nav>
+
+                                {(() => {
+                                    if (Role === "User") {
+                                        return (<>
+                                            <NavLink to="/Profile">
+                                                <span className="p-2">Profile</span>
+                                            </NavLink>
+                                            <NavLink to="/">
+                                                <span className="p-2">Public Home</span>
+                                            </NavLink>
+                                        </>);
+                                    } else if (Role === "Office") {
+                                        return (<>
+                                            <NavLink to="/Dashboard">
+                                                <span className="p-2">Dashboard</span>
+                                            </NavLink>
+                                            <NavLink to="/">
+                                                <span className="p-2">Public Home</span>
+                                            </NavLink>
+                                            <NavLink to="/AllMovieSee">
+                                                <span className="p-2">All Movies</span>
+                                            </NavLink>
+                                            <NavLink to="/AllHollywoodMovie">
+                                                <span className="p-2">Hollywood Movies</span>
+                                            </NavLink>
+                                            <NavLink to="/AllBollywoodMovie">
+                                                <span className="p-2">Bollywood Movies</span>
+                                            </NavLink>
+                                            <NavLink to="/AddMovie">
+                                                <span className="p-2">Add Movie</span>
+                                            </NavLink>
+                                            <NavLink to="/Profile">
+                                                <span className="p-2">Profile</span>
+                                            </NavLink>
+                                        </>);
+                                    } else {
+                                        return (
+                                            <>
+                                                <NavLink to="/Dashboard">
+                                                    <span className="p-2">Dashboard</span>
+                                                </NavLink>
+                                                <NavLink to="/">
+                                                    <span className="p-2">Public Home</span>
+                                                </NavLink>
+                                                <NavLink to="/">
+                                                    <span className="p-2">Pending Movie</span>
+                                                </NavLink>
+                                                <NavLink to="/AllMovieSee">
+                                                    <span className="p-2">All Movies</span>
+                                                </NavLink>
+                                                <NavLink to="/AllHollywoodMovie">
+                                                    <span className="p-2">Hollywood Movies</span>
+                                                </NavLink>
+                                                <NavLink to="/AllBollywoodMovie">
+                                                    <span className="p-2">Bollywood Movies</span>
+                                                </NavLink>
+                                                <NavLink to="/AddMovie">
+                                                    <span className="p-2">Add Movie</span>
+                                                </NavLink>
+                                                <NavLink to="/Profile">
+                                                    <span className="p-2">Profile</span>
+                                                </NavLink>
+                                            </>
+                                        );
+                                    }
+                                })()}
+                            </nav>;
+
+
+
+
+
+
 
                         </div>
                     </div>
