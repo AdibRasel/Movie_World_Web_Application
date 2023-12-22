@@ -80,3 +80,40 @@ export async function Register(PostBody, RegisterUrl) {
     }
 }
 // User Register End
+
+
+
+
+
+
+// Movie Create Start
+export async function MovieCreate(PostBody, RegisterUrl) {
+
+
+
+
+    try {
+        const URL = BaseURL + "/" + RegisterUrl;
+
+        // const AxiosHeader = { headers: { 'content-type': 'multipart/form-data' } };
+        // const AxiosHeader = { headers: { 'content-type': 'application/json' } };
+
+        const tokenItem = await localStorage.getItem('Token');
+        const emailItem = await localStorage.getItem('OfficeEmail');
+        const userToken = tokenItem.value;
+        const userEmail = emailItem.value;
+        const AxiosHeader = { headers: { token: tokenItem, email: emailItem } };
+
+
+        const result = await axios.post(URL, PostBody, AxiosHeader);
+
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// Movie Create End

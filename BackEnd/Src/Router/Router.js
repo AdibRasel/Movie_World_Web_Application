@@ -4,7 +4,9 @@ const OfficeController = require('../controller/OfficeController/OfficeControlle
 const UserController = require('../controller/UserController/UserController');
 const MenuController = require("../Controller/MenuController/MenuController");
 const DashBoardController = require("../Controller/DashBoardController/DashBoardController")
-const TrailerController = require("../Controller/TrailerController/TrailerController")
+const TrailerController = require("../Controller/TrailerController/TrailerController");
+const MovieController = require("../Controller/MovieController/MovieController");
+const AuthVerifyMiddleware = require('../Middleware/AuthVerifyMiddleware');
 
 const Router =express.Router();
 
@@ -46,6 +48,29 @@ Router.get("/DashBoardDetails", DashBoardController.DashBoardDetails)
 
 // Trailer Create
 Router.post("/TrailerCreate", TrailerController.TrailerCreate)
+
+
+
+
+
+
+
+
+// Bollywood Movies Create
+Router.post("/BollywoodMoviesCreate", AuthVerifyMiddleware, MovieController.BollywoodMoviesCreate)
+
+// Hollywood Movies Create
+Router.post("/HollywoodMoviesCreate", AuthVerifyMiddleware, MovieController.HollywoodMoviesCreate)
+
+
+
+
+
+
+
+
+
+
 
 
 
