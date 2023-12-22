@@ -3,84 +3,12 @@ import { Tab, Tabs, Form, Button } from 'react-bootstrap';
 
 import { Login } from "../../APIService/APIService.js"
 
-const LoginComponents = () => {
-    // const [loginFormData, setLoginFormData] = useState({
-    //     loginSelector: 'User',
-    //     loginEmail: '',
-    //     loginPassword: '',
-    // });
-
-    // const [regFormData, setRegFormData] = useState({
-    //     regSelector: 'User',
-    //     regFullName: '',
-    //     regEmail: '',
-    //     regPassword: '',
-    // });
-
-    // const handleLoginChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setLoginFormData((prevData) => ({ ...prevData, [name]: value }));
-    // };
-
-    // const handleRegChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setRegFormData((prevData) => ({ ...prevData, [name]: value }));
-    // };
-
-    // const handleLoginSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     // Basic validation (check if fields are not empty)
-    //     if (loginFormData.loginEmail && loginFormData.loginPassword) {
-    //         // Your logic for login
-    //         alert(`Logging in as ${loginFormData.loginSelector}`);
-
-    //         let PostBody = {
-    //             OfficeEmail: loginFormData.loginEmail,
-    //             Password: loginFormData.loginPassword,
-    //         };
-
-    //         const Url = loginFormData.loginSelector;
-
-    //         Login(PostBody, Url).then((Res) => {
-    //             if (Res.data.json_data == null) {
-    //                 // SetUserError("Incorrect Email OR Password")
-    //                 console.log("1")
-    //             } else if (Res.data.msg == "success") {
-    //                 console.log("Success")
-    //                 // SetUserError(" ")
-    //                 // localStorage.setItem('ID', Res.data.json_data.id)
-    //                 // localStorage.setItem('FullName', Res.data.json_data.full_name)
-    //                 // localStorage.setItem('Email', Res.data.json_data.email)
-    //                 // localStorage.setItem('Mobile', Res.data.json_data.mobile)
-    //                 // localStorage.setItem('DateOfBirth', Res.data.json_data.dob)
-    //                 // localStorage.setItem('Image', Res.data.json_data.signature_image)
-    //                 // history.push('/home');
-    //             } else {
-    //                 // SetUserError("Server error please try again later!")
-    //                 console.log("Error")
-    //             }
-    //             console.log(Res)
-    //         });
+import { useNavigate } from 'react-router-dom';
 
 
+const LoginRegComponents = () => {
 
-    //     } else {
-    //         alert('Please fill in all required fields.');
-    //     }
-    // };
-
-    // const handleRegSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     // Basic validation (check if fields are not empty)
-    //     if (regFormData.regFullName && regFormData.regEmail && regFormData.regPassword) {
-    //         // Your logic for registration
-    //         alert(`Registering as ${regFormData.regSelector}`);
-    //     } else {
-    //         alert('Please fill in all required fields.');
-    //     }
-    // };
+    const navigate = useNavigate();
 
     let LoginEmailRef: any, LoginPasswordRef: any, RegNameRef: any, RegEmailRef: any, RegPasswordRef: any, LoginSelectorRef: any, RegSelectorRef: any = useRef();
 
@@ -110,10 +38,10 @@ const LoginComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    // history.push('/home');
+                    navigate('/home');
+                    window.location.reload();
                 } else {
                     localStorage.clear();
-                    console.log("Error")
                 }
                 console.log(Res)
             });
@@ -141,16 +69,9 @@ const LoginComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    // history.push('/home');
+                    navigate('/home');
+                    window.location.reload();
                 } else {
-                    console.log("Error")
-                    localStorage.setItem('UserID', "Login Faild")
-                    localStorage.setItem('UserEmail', "Login Faild")
-                    localStorage.setItem('FullName', "Login Faild")
-                    localStorage.setItem('Mobile', "Login Faild")
-                    localStorage.setItem('Photo', "Login Faild")
-                    localStorage.setItem('CreateDate', "Login Faild")
-                    localStorage.setItem('Token', "Login Faild")
                     localStorage.clear();
                 }
                 console.log(Res)
@@ -180,16 +101,9 @@ const LoginComponents = () => {
                     localStorage.setItem('Photo', Res.data.data.Photo)
                     localStorage.setItem('CreateDate', Res.data.data.CreateDate)
                     localStorage.setItem('Token', Res.data.Token)
-                    // history.push('/home');
+                    navigate('/home');
+                    window.location.reload();
                 } else {
-                    console.log("Error")
-                    localStorage.setItem('UserID', "Login Faild")
-                    localStorage.setItem('UserEmail', "Login Faild")
-                    localStorage.setItem('FullName', "Login Faild")
-                    localStorage.setItem('Mobile', "Login Faild")
-                    localStorage.setItem('Photo', "Login Faild")
-                    localStorage.setItem('CreateDate', "Login Faild")
-                    localStorage.setItem('Token', "Login Faild")
                     localStorage.clear();
                 }
                 console.log(Res)
@@ -296,4 +210,4 @@ const LoginComponents = () => {
     );
 };
 
-export default LoginComponents;
+export default LoginRegComponents;

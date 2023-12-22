@@ -1,6 +1,6 @@
 import Footer from "../../Common/Footer/Footer"
 import Header from "../../Common/Header/Header"
-import LoginComponents from "../../Components/LoginComponents/LoginComponents"
+import LoginRegComponents from "../../Components/LoginRegComponents/LoginRegComponents"
 
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
   <Header />
   
   
-  <LoginComponents />
+  <LoginRegComponents />
   
   
   <Footer />

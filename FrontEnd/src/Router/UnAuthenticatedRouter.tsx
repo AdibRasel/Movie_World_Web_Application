@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from '../Page/Login/Login';
+import Login from '../Page/LoginReg/LoginReg';
 import Registration from '../Page/Registration/Registration';
 import WrongRoute from '../Helper/WrongRoute/WrongRoute';
 import Home from '../Page/Home/Home';
@@ -15,6 +15,7 @@ const UnAuthenticatedRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/Registration" element={<Registration />} />
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
     </Routes>
   </BrowserRouter>
   )

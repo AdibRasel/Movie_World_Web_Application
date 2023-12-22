@@ -1,12 +1,19 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-
+import { useNavigate } from 'react-router-dom';
 
 const ProfileComponents = () => {
+    const navigate = useNavigate();
+    const LogoutBtn = () => {
+        localStorage.clear();
+        navigate('/login');
+        window.location.reload();
+    }
+
     return (<>
 
 
-        <div className="vh-100" style={{ backgroundColor: '#9de2ff', paddingTop:"100px" }}>
+        <div className="vh-100" style={{ backgroundColor: '#9de2ff', paddingTop: "100px" }}>
             <Container>
                 <Row className="justify-content-center">
                     <Col md="9" lg="" xl="5" className="mt-5">
@@ -19,6 +26,9 @@ const ProfileComponents = () => {
                                             src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp'
                                             alt='Generic placeholder image'
                                             fluid />
+                                        <div className="d-flex pt-1">
+                                            <Button onClick={LogoutBtn} variant="primary" className="flex-grow-1">Log Out <i className="fa-solid fa-arrow-right-from-bracket"></i></Button>
+                                        </div>
                                     </div>
                                     <div className="flex-grow-1 ms-3">
                                         <Card.Title>Danny McLoan</Card.Title>
@@ -40,7 +50,7 @@ const ProfileComponents = () => {
                                             </div>
                                         </div>
                                         <div className="d-flex pt-1">
-                                            <Button variant="primary" className="flex-grow-1">Edit Profile <i className="fa-solid fa-pen-to-square"></i></Button>
+                                            <Button variant="primary" className="flex-grow-1">Edit Profile <i className="fa-solid fa-pen-to-square"></i></Button> <br />
                                         </div>
                                     </div>
                                 </div>

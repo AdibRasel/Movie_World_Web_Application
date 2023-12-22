@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Footer = () => {
-    const Logo = localStorage.getItem('Logo');
+    // const Logo = localStorage.getItem('Logo');
+    const Logo = "https://logos-world.net/wp-content/uploads/2022/06/CMovies-Logo.png";
     return (<>
 
         <div className="bg-black">

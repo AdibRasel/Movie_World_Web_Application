@@ -7,11 +7,20 @@ const Header = () => {
   const [Logo, SetLogo] = useState("");
   const [MenuList, SetMenuList] = useState([]);
 
+  const [LoginToken, SetLoginToken] = useState(false);
 
+  
+  
   useEffect(() => {
+    
+    const LoginTokenChack = localStorage.getItem('Token')
 
-    var GetLogo = localStorage.getItem('Logo');
-    SetLogo(GetLogo);
+    if(LoginTokenChack){
+      SetLoginToken(true)
+    }
+
+    // var GetLogo = localStorage.getItem('Logo');
+    SetLogo("https://logos-world.net/wp-content/uploads/2022/06/CMovies-Logo.png");
 
     MenuDetails().then((res) => {
       SetMenuList(res.data.data);
@@ -65,7 +74,7 @@ const Header = () => {
                   <option value="Bangla">BN</option>
                 </select>
               </button>
-              <NavLink to="/Profile">
+              <NavLink to={LoginToken ? "/Profile" : "/login"}>
                 <span className="p-2"><i className="fa fa-user text-white"></i></span>
               </NavLink>
             </nav>
