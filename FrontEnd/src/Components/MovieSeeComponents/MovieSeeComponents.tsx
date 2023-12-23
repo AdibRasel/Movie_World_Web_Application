@@ -28,6 +28,7 @@ const MovieSeeComponents = () => {
 
 
     const [MovieDetails, SetMovieDetails] = useState([])
+    const [OldReview, SetOldReview] = useState([])
 
     useEffect(() => {
 
@@ -47,6 +48,7 @@ const MovieSeeComponents = () => {
         };
 
 
+
         const fetchReviewData = async () => {
             try {
                 const responseReviewSee = await ReviewSee(MovieID);
@@ -59,8 +61,13 @@ const MovieSeeComponents = () => {
 
                 setReviews([...reviews, newReview]);
 
+                SetOldReview(responseReviewSee.data.Review)
+
                 console.log("responseReviewSee")
                 console.log(responseReviewSee)
+                console.log(responseReviewSee.data.Review[0].Review)
+                console.log(responseReviewSee.data.Review[0].UserName)
+                console.log(responseReviewSee.data.Review[0].ReviewLength)
             } catch (error) {
                 console.error("Read Failed, Request Failed! API Service > Try > Catch", error);
             }
@@ -182,6 +189,25 @@ const MovieSeeComponents = () => {
                                             </div>
                                             <div className="col-md-8">
                                                 <p>{review.reviewText}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {OldReview.map((review) => (
+                                    <div key={review.id} className="text-center mb-2" style={{ backgroundColor: "rgb(0 119 204 / 30%)", borderRadius: "10px" }}>
+                                        <div className="mb-2" style={{ backgroundColor: "rgb(0 119 204)" }}>
+                                            <span style={{ color: '#ffc83d', fontSize: '25px' }}>{'★'.repeat(review.ReviewLength)}</span>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <img src={UserIcon} style={{ width: "100px", height: "100px", borderRadius: "50%" }} alt="" />
+                                                <br />
+                                                <span> {review.UserName}</span>
+                                            </div>
+                                            <div className="col-md-8">
+                                                <p>{review.Review}</p>
                                             </div>
                                         </div>
                                     </div>
