@@ -1,6 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import AllMovies from '../HomePageComponents/AllMovies/AllMovies';
 import UpcomingMovies from '../HomePageComponents/UpcomingMovies/UpcomingMovies';
+import { FullMovieMoviesDetails } from "../../APIService/APIService.js";
+import { useParams } from 'react-router-dom';
+
+
 
 const MovieSeeComponents = () => {
     const backgroundImage = 'https://t4.ftcdn.net/jpg/02/34/98/73/360_F_234987365_1bwmHyUjVOKIibWEbnwaayE9FQiq2xpu.jpg';
@@ -31,6 +35,32 @@ const MovieSeeComponents = () => {
         }
     };
 
+
+    const { MovieID } = useParams();
+
+    const [MovieDetails, SetMovieDetails] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await FullMovieMoviesDetails(MovieID);
+                if (response.data.HollywoodMovieData[0]) {
+                    SetMovieDetails(response.data.HollywoodMovieData[0])
+                } else if(response.data.BollywoodMovieData[0]) {
+                    SetMovieDetails(response.data.BollywoodMovieData[0])
+                }
+
+                console.log(response)
+            } catch (error) {
+                console.error("Read Failed, Request Failed! API Service > Try > Catch", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    console.log(MovieDetails)
+
     return (
         <>
             <div className="s" style={{
@@ -48,24 +78,14 @@ const MovieSeeComponents = () => {
                     <div className="row text-white">
 
                         <div className="col-md-4">
-                            <img src={movieBgImg} className="img-fluid" style={{ width: '100%', height: '300px' }} alt="" />
-                            <p className="pt-3">EPISODES <span>121</span></p>
-                            <p>VIDEOS <span>24</span> </p>
-                            <p>PHOTOS <span>85</span> </p>
+                            <img src={MovieDetails.MovieThumbnail} className="img-fluid" style={{ width: '100%', height: '300px' }} alt="" />
+                            <p className="pt-3">EPISODES <span></span></p>
+                            <p>VIDEOS <span></span> </p>
+                            <p>PHOTOS <span></span> </p>
                         </div>
 
                         <div className="col-md-7">
-                            <div>
-                                <iframe
-                                    width="713"
-                                    height="401"
-                                    src="https://www.youtube.com/embed/7wRqAtUcD68"
-                                    title="Bandit Movie Explain in Bangla | Heist | Action | Crime | Robbery | Cineplex52"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
+                            <div className='pt-3' dangerouslySetInnerHTML={{ __html: MovieDetails.FullEmbedCode }} />
                         </div>
 
                     </div>
@@ -74,7 +94,7 @@ const MovieSeeComponents = () => {
 
                         <div className="col-md-4">
                             <div>
-                                <h2>Your Review</h2>
+                                <h3>Your Review</h3>
                                 <div>
                                     {[1, 2, 3, 4, 5].map((star) => (
                                         <span
@@ -94,10 +114,9 @@ const MovieSeeComponents = () => {
                         </div>
 
                         <div className="col-md-8">
-                            <p>Bandit Movie Explain in Bangla | Heist | Action | Crime | Robbery | Cineplex52</p>
-                            <p>Creators: <span>Julie Pleckevin Williamson </span></p>
-                            <p>Stars: <span>Nine DoverevPa Wesleylan Somerhaldr </span></p>
-                            <h2>All Reviews</h2>
+                            <h2>{MovieDetails.MovieName}</h2>
+                            <p>{MovieDetails.MovieDescription}</p>
+                            <h3>All Reviews</h3>
                             <div>
                                 {reviews.map((review) => (
                                     <div key={review.id} className="text-center mb-2" style={{ backgroundColor: "rgb(0 119 204 / 30%)", borderRadius: "10px" }}>

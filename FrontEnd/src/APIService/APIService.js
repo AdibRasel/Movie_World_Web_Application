@@ -126,20 +126,9 @@ export async function MovieCreate(PostBody, RegisterUrl) {
 // All Movie Movies Details
 export async function AllMovieMoviesDetails() {
 
-
-
-
     try {
         const URL = BaseURL + "/AllMovieMoviesDetails";
-
-        // const AxiosHeader = { headers: { 'content-type': 'multipart/form-data' } };
-        // const AxiosHeader = { headers: { 'content-type': 'application/json' } };
-
-        const tokenItem = await localStorage.getItem('Token');
-        const emailItem = await localStorage.getItem('OfficeEmail');
-        const AxiosHeader = { headers: { token: tokenItem, email: emailItem } };
         const result = await axios.get(URL);
-
         if (result.status == 200) {
             return result;
         } else {
@@ -150,3 +139,24 @@ export async function AllMovieMoviesDetails() {
     }
 }
 // All Movie Movies Details
+
+
+
+
+
+
+// Full Movie Movies Details
+export async function FullMovieMoviesDetails(MovieID) {
+    try {
+        const URL = BaseURL + "/FullMovieMoviesDetails/" + MovieID;
+        const result = await axios.get(URL);
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// Full Movie Movies Details
