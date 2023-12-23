@@ -72,6 +72,10 @@ Router.get("/HollywoodMoviesDetails", MovieController.HollywoodMoviesDetails)
 Router.get("/AllMovieMoviesDetails", MovieController.AllMovieMoviesDetails)
 
 
+// Full Movie Movies Details
+Router.get("/FullMovieMoviesDetails/:MovieID", MovieController.FullMovieMoviesDetails)
+
+
 
 
 

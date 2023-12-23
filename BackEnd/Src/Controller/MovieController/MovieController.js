@@ -2,6 +2,7 @@ const BollywoodMoviesModel = require("../../Model/BollywoodMoviesModel/Bollywood
 const HollywoodMoviesModel = require("../../Model/HollywoodMoviesModel/HollywoodMoviesModel");
 const AllDetailsService = require("../../Service/Common/AllDetailsService");
 const CreateService = require("../../Service/Common/CreateService");
+const MovieFullDetailsService = require("../../Service/MovieService/MovieFullDetailsService");
 
 
 // Bollywood Movies Create
@@ -42,3 +43,15 @@ exports.AllMovieMoviesDetails = async (req, res) => {
 
     res.status(200).json(allMovieDetails);
 }
+
+
+
+// Movie Full Details Service
+exports.FullMovieMoviesDetails = async (req, res) => {
+    let FullMoviesDetails = await MovieFullDetailsService(req, HollywoodMoviesModel, BollywoodMoviesModel);
+    res.status(200).json(FullMoviesDetails);
+}
+
+
+
+
