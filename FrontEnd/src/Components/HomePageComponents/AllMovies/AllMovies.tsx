@@ -27,6 +27,8 @@ const AllMovies = () => {
                     </h1>
 
 
+
+
                     <AllMoviesList />
 
                     <div className="row">

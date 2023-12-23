@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { NavLink } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 import { AllMovieMoviesDetails } from "../../../APIService/APIService.js";
 
 const AllMoviesList = () => {
@@ -46,7 +47,9 @@ const AllMoviesList = () => {
                         </SwiperSlide>
                     ))
                 ) : (
-                    <p>No Hollywood movies available.</p>
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
                 )}
 
                 {AllBollywood && AllBollywood.length > 0 ? (
@@ -62,7 +65,7 @@ const AllMoviesList = () => {
                         </SwiperSlide>
                     ))
                 ) : (
-                    <p>No Bollywood movies available.</p>
+                    <></>
                 )}
             </Swiper>
         </div>

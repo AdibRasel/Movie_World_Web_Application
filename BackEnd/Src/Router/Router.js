@@ -7,6 +7,7 @@ const DashBoardController = require("../Controller/DashBoardController/DashBoard
 const TrailerController = require("../Controller/TrailerController/TrailerController");
 const MovieController = require("../Controller/MovieController/MovieController");
 const AuthVerifyMiddleware = require('../Middleware/AuthVerifyMiddleware');
+const ReviewController = require("../Controller/ReviewController/ReviewController")
 
 const Router =express.Router();
 
@@ -74,6 +75,15 @@ Router.get("/AllMovieMoviesDetails", MovieController.AllMovieMoviesDetails)
 
 // Full Movie Movies Details
 Router.get("/FullMovieMoviesDetails/:MovieID", MovieController.FullMovieMoviesDetails)
+
+
+
+
+// Full Movie Movies Details
+Router.post("/ReviewCreate", ReviewController.ReviewCreate)
+
+
+Router.get("/ReviewFullSee/:MovieID", ReviewController.ReviewFullSee)
 
 
 

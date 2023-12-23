@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { NavLink } from 'react-router-dom';
 import { BsBadge4KFill } from 'react-icons/bs';
+import Spinner from 'react-bootstrap/Spinner';
 
 import { AllMovieMoviesDetails } from "../../../APIService/APIService.js";
 
@@ -49,17 +50,27 @@ const BollywoodMoviesList = () => {
                 modules={[EffectCoverflow, Pagination]}
                 className="mySwiper"
             >
-                {AllBollywood.map((movie) => (
-                    <SwiperSlide key={movie._id} className='text-center'>
-                        <div className="p-2" style={{ backgroundImage: `url(${movie.MovieThumbnail})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
-                            <BsBadge4KFill className='' />
-                            <h3 className='text-primary'>{movie.MovieName}</h3>
-                            <NavLink to={`/MovieSee/${movie._id}`}>
-                            <button className='btn btn-primary' style={{ marginTop: "150px", textAlign: "center" }}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
-                            </NavLink>
-                        </div>
-                    </SwiperSlide>
-                ))}
+
+                {AllBollywood && AllBollywood.length > 0 ? (
+
+
+                    AllBollywood.map((movie) => (
+                        <SwiperSlide key={movie._id} className='text-center'>
+                            <div className="p-2" style={{ backgroundImage: `url(${movie.MovieThumbnail})`, width: "100%", height: "350px", backgroundSize: "cover", backgroundPosition: "center", backgroundColor: "#7E635A", backgroundRepeat: "no-repeat" }}>
+                                <BsBadge4KFill className='' />
+                                <h3 className='text-primary'>{movie.MovieName}</h3>
+                                <NavLink to={`/MovieSee/${movie._id}`}>
+                                    <button className='btn btn-primary' style={{ marginTop: "150px", textAlign: "center" }}>PLAY NOW <i className="fa-solid fa-play fa-beat"></i></button>
+                                </NavLink>
+                            </div>
+                        </SwiperSlide>
+                    ))
+                ) : (
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                )}
+
             </Swiper>
         </div>
     );
