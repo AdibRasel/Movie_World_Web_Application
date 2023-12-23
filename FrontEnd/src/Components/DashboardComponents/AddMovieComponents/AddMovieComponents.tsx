@@ -14,15 +14,7 @@ const AddMovieComponents = () => {
   const [base64Image, setBase64Image] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const HandleEmbedCode = () => {
 
-    // const EmbedCodeValue = EmbedCodeRef.current.value;
-    // SetEmbedCode(EmbedCodeValue);
-
-    // const EmbedFullCodeValue = EmbedFullCodeRef.current.value;
-    // SetEmbedFullCode(EmbedFullCodeValue);
-
-  };
 
   // image preview code start
   const [image, setImage] = useState(null);
@@ -58,6 +50,17 @@ const AddMovieComponents = () => {
 
   let MovieNameRef: any, MovieDescriptionRef: any, EmbedCodeRef: any, FullEmbedCodeRef: any, TypeSelectorRef: any = useRef();
 
+  const [EmbedCode, SetEmbedCode] = useState("");
+  const [EmbedFullCode, SetEmbedFullCode] = useState("");
+
+  const HandleEmbedCode = () => {
+
+    const EmbedCode = EmbedCodeRef.value;
+    SetEmbedCode(EmbedCode)
+    const FullEmbedCode = FullEmbedCodeRef.value;
+    SetEmbedFullCode(FullEmbedCode)
+
+  };
 
   const SubmitButton = () => {
 
@@ -172,7 +175,7 @@ const AddMovieComponents = () => {
 
                 <div className="d-grid gap-2">
                   <Button onClick={SubmitButton} variant="primary" size="md">
-                    Block level button
+                    Submit
                   </Button>
                 </div>
               </Form>
@@ -184,7 +187,7 @@ const AddMovieComponents = () => {
 
 
             <div className="col-md-4" style={{ border: "1px solid #333", padding: "10px", borderRadius: "10px", boxShadow: "0px 0px 10px #333" }}>
-              {/* <img className='img-fluid' src={image} alt="" /> */}
+              <img className='img-fluid' src={image} alt="" />
             </div>
 
 
@@ -195,16 +198,17 @@ const AddMovieComponents = () => {
               <iframe
                 width="100%"
                 height="60%"
-                // src={`https://www.youtube.com/embed/${EmbedCode}`}
+                src={`https://www.youtube.com/embed/${EmbedCode}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
+              
             </div>
 
             {/* {EmbedCode} */}
-            {/* <div dangerouslySetInnerHTML={{ __html: EmbedCode }} /> */}
+            <div className='pt-3' dangerouslySetInnerHTML={{ __html: EmbedFullCode }} />
 
           </div>
         </div>
