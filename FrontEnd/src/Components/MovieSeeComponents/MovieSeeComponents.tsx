@@ -3,10 +3,13 @@ import AllMovies from '../HomePageComponents/AllMovies/AllMovies';
 import UpcomingMovies from '../HomePageComponents/UpcomingMovies/UpcomingMovies';
 import { FullMovieMoviesDetails, ReviewCreate, ReviewSee } from "../../APIService/APIService.js";
 import { useParams } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 
 const MovieSeeComponents = () => {
+
+    const navigate = useNavigate();
+
     const backgroundImage = 'https://t4.ftcdn.net/jpg/02/34/98/73/360_F_234987365_1bwmHyUjVOKIibWEbnwaayE9FQiq2xpu.jpg';
 
     const movieBgImg = 'https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvZGVhZjJlNDktMDk0Ni00YmFlLTk5NmEtYmVmYzJkNjAyYmExLjEzYTM4MGNjM2ZkOTA2ZTNkOTE4ZTY3YjU5M2UxMzhhLmpwZWc.jpg';
@@ -86,32 +89,48 @@ const MovieSeeComponents = () => {
 
     const handleAddReview = () => {
 
-        if (reviewValue > 0) {
-            const newReview = {
-                id: Date.now(),
-                rating: reviewValue,
-                personName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
-                reviewText: ReviewRef.current.value, // Use ReviewRef.current.value to get the textarea value
-            };
+        if (localStorage.getItem('Token')) {
 
-            setReviews([...reviews, newReview]);
-            setReviewValue(0);
+            if (reviewValue > 0) {
+                const newReview = {
+                    id: Date.now(),
+                    rating: reviewValue,
+                    personName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
+                    reviewText: ReviewRef.current.value, // Use ReviewRef.current.value to get the textarea value
+                };
+
+                setReviews([...reviews, newReview]);
+                setReviewValue(0);
+            }
+
+            const ReviewValue = ReviewRef.current.value
+
+            let PostBody = {
+                Review: ReviewValue,
+                ReviewLength: reviewValue,
+                MovieName: MovieDetails.MovieName,
+                MovieID: MovieID,
+                UserID: localStorage.getItem('UserID'),
+                UserName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
+            };
+            ReviewCreate(PostBody).then((Res) => {
+                console.log(Res)
+                alert("Success")
+            });
+
+
+        } else {
+
+            alert("Please login first then leave a review")
+            navigate('/Login');
+
+
         }
 
-        const ReviewValue = ReviewRef.current.value
 
-        let PostBody = {
-            Review: ReviewValue,
-            ReviewLength: reviewValue,
-            MovieName: MovieDetails.MovieName,
-            MovieID: MovieID,
-            UserID: localStorage.getItem('UserID'),
-            UserName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
-        };
-        ReviewCreate(PostBody).then((Res) => {
-            console.log(Res)
-            alert("Success")
-        });
+
+
+
 
     };
 
