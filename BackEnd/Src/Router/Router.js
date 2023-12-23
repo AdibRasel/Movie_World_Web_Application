@@ -59,17 +59,17 @@ Router.post("/TrailerCreate", TrailerController.TrailerCreate)
 // Bollywood Movies Create
 Router.post("/BollywoodMoviesCreate", AuthVerifyMiddleware, MovieController.BollywoodMoviesCreate)
 // Bollywood Movies Details
-Router.get("/BollywoodMoviesDetails", AuthVerifyMiddleware, MovieController.BollywoodMoviesDetails)
+Router.get("/BollywoodMoviesDetails", MovieController.BollywoodMoviesDetails)
 
 
 
 // Hollywood Movies Create
 Router.post("/HollywoodMoviesCreate", AuthVerifyMiddleware, MovieController.HollywoodMoviesCreate)
 // Hollywood Movies Details
-Router.get("/HollywoodMoviesDetails", AuthVerifyMiddleware, MovieController.HollywoodMoviesDetails)
+Router.get("/HollywoodMoviesDetails", MovieController.HollywoodMoviesDetails)
 
 // AllMovie Movies Details
-Router.get("/AllMovieMoviesDetails", AuthVerifyMiddleware, MovieController.AllMovieMoviesDetails)
+Router.get("/AllMovieMoviesDetails", MovieController.AllMovieMoviesDetails)
 
 
 

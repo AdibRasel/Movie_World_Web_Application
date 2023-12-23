@@ -117,3 +117,36 @@ export async function MovieCreate(PostBody, RegisterUrl) {
     }
 }
 // Movie Create End
+
+
+
+
+
+
+// All Movie Movies Details
+export async function AllMovieMoviesDetails() {
+
+
+
+
+    try {
+        const URL = BaseURL + "/AllMovieMoviesDetails";
+
+        // const AxiosHeader = { headers: { 'content-type': 'multipart/form-data' } };
+        // const AxiosHeader = { headers: { 'content-type': 'application/json' } };
+
+        const tokenItem = await localStorage.getItem('Token');
+        const emailItem = await localStorage.getItem('OfficeEmail');
+        const AxiosHeader = { headers: { token: tokenItem, email: emailItem } };
+        const result = await axios.get(URL);
+
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// All Movie Movies Details

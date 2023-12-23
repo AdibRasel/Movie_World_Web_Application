@@ -66,7 +66,7 @@ const AuthenticationRouter = () => {
                 <Route path="/GetPro" element={<GetPro />} />
                 <Route path="/Movies" element={<Movies />} />
                 <Route path="/WatchList" element={<WatchList />} />
-                <Route path="/MovieSee" element={<MovieSee />} />
+                <Route path="/MovieSee/:MovieID" element={<MovieSee />} />
                 <Route path="/Dashboard" element={<Dashboard />} />
                 <Route path="/AllMovieSee" element={<AllMovieSeePage />} />
                 <Route path="/AllHollywoodMovie" element={<AllHollywoodMovie />} />
