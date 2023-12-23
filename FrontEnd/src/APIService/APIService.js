@@ -160,3 +160,43 @@ export async function FullMovieMoviesDetails(MovieID) {
     }
 }
 // Full Movie Movies Details
+
+
+
+
+
+
+
+
+// Review Create Start
+export async function ReviewCreate(PostBody) {
+    try {
+        const URL = BaseURL + "/ReviewCreate";
+        const result = await axios.post(URL, PostBody);
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// Review Create End
+
+
+// Review See Start
+export async function ReviewSee(MovieID) {
+    try {
+        const URL = BaseURL + "/ReviewFullSee/" + MovieID;
+        const result = await axios.get(URL);
+        if (result.status == 200) {
+            return result;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+// Review See End

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AllMovies from '../HomePageComponents/AllMovies/AllMovies';
 import UpcomingMovies from '../HomePageComponents/UpcomingMovies/UpcomingMovies';
-import { FullMovieMoviesDetails } from "../../APIService/APIService.js";
+import { FullMovieMoviesDetails, ReviewCreate, ReviewSee } from "../../APIService/APIService.js";
 import { useParams } from 'react-router-dom';
 
 
@@ -13,6 +13,8 @@ const MovieSeeComponents = () => {
 
     const UserIcon = "https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
 
+    const { MovieID } = useParams();
+
     const ReviewRef = useRef();
     const [reviewValue, setReviewValue] = useState(0);
     const [reviews, setReviews] = useState([]);
@@ -21,32 +23,20 @@ const MovieSeeComponents = () => {
         setReviewValue(value);
     };
 
-    const handleAddReview = () => {
-        if (reviewValue > 0) {
-            const newReview = {
-                id: Date.now(),
-                rating: reviewValue,
-                personName: 'John Doe',
-                reviewText: ReviewRef.current.value, // Use ReviewRef.current.value to get the textarea value
-            };
-
-            setReviews([...reviews, newReview]);
-            setReviewValue(0);
-        }
-    };
 
 
-    const { MovieID } = useParams();
+
 
     const [MovieDetails, SetMovieDetails] = useState([])
 
     useEffect(() => {
+
         const fetchData = async () => {
             try {
                 const response = await FullMovieMoviesDetails(MovieID);
                 if (response.data.HollywoodMovieData[0]) {
                     SetMovieDetails(response.data.HollywoodMovieData[0])
-                } else if(response.data.BollywoodMovieData[0]) {
+                } else if (response.data.BollywoodMovieData[0]) {
                     SetMovieDetails(response.data.BollywoodMovieData[0])
                 }
 
@@ -56,10 +46,70 @@ const MovieSeeComponents = () => {
             }
         };
 
+
+        const fetchReviewData = async () => {
+            try {
+                const responseReviewSee = await ReviewSee(MovieID);
+                const newReview = {
+                    id: Date.now(),
+                    rating: responseReviewSee.data.Review[0].ReviewLength,
+                    personName: responseReviewSee.data.Review[0].UserName,
+                    reviewText: responseReviewSee.data.Review[0].Review,
+                };
+
+                setReviews([...reviews, newReview]);
+
+                console.log("responseReviewSee")
+                console.log(responseReviewSee)
+            } catch (error) {
+                console.error("Read Failed, Request Failed! API Service > Try > Catch", error);
+            }
+        };
+
+
+
+
+
+        fetchReviewData()
         fetchData();
     }, []);
 
-    console.log(MovieDetails)
+
+
+
+    const handleAddReview = () => {
+
+        if (reviewValue > 0) {
+            const newReview = {
+                id: Date.now(),
+                rating: reviewValue,
+                personName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
+                reviewText: ReviewRef.current.value, // Use ReviewRef.current.value to get the textarea value
+            };
+
+            setReviews([...reviews, newReview]);
+            setReviewValue(0);
+        }
+
+        const ReviewValue = ReviewRef.current.value
+
+        let PostBody = {
+            Review: ReviewValue,
+            ReviewLength: reviewValue,
+            MovieName: MovieDetails.MovieName,
+            MovieID: MovieID,
+            UserID: localStorage.getItem('UserID'),
+            UserName: localStorage.getItem('UserEmail') || localStorage.getItem('OfficeName') || localStorage.getItem('SuperAdminName'),
+        };
+        ReviewCreate(PostBody).then((Res) => {
+            console.log(Res)
+            alert("Success")
+        });
+
+    };
+
+
+
 
     return (
         <>
